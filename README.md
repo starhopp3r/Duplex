@@ -26,3 +26,6 @@ void clearDisplay();
 // Clear the display and move the cursor to a specific location
 void clearDisplayAndCursorTo();
 ```
+
+## Contributors
+Nikhil Raghavendra and Ong Jun Wen (@Jw0699)
