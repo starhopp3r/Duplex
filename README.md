@@ -2,12 +2,7 @@
 
 Library Routine for the LCD (Parallel Port) Display of a Smart Washing Machine. The LCD is connected to the microcontroller via the Serial Peripheral Interface (SPI).
 
-Library Routine: LCDUI.h
-
-Author: Nikhil Raghavendra and Ong Jun Wen (Group 2)
-
-Functions:
-
+```c
 // Initialise LCD
 void initLCD();
 
@@ -28,3 +23,4 @@ void clearDisplay();
 
 // Clear the display and move the cursor to a specific location
 void clearDisplayAndCursorTo();
+```
