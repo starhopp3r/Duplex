@@ -5,9 +5,6 @@
 //  Created by Nikhil Raghavendra on 22/6/18.
 //  Copyright © 2018 Nikhil Raghavendra and Ong Jun Wen. All rights reserved.
 //
-
-
-
 #include <xc.h>
 #include "amt.h"
 #include <stdio.h>
