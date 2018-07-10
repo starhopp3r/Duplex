@@ -8,12 +8,6 @@ Library Routine for the LCD (Parallel Port) Display of a Smart Washing Machine. 
 // Initialise LCD
 void initLCD();
 
-// Turn off the display
-void turnOffDisplay();
-
-// Turn on the display
-void turnOnDisplay();
-
 // Display alphabets and numbers
 void displayAlphaNumeric();
 
