@@ -8,19 +8,19 @@ Library Routine for the LCD (Parallel Port) Display of a Smart Washing Machine. 
 // Initialise LCD
 void initLCDUI(void);
 
-// Display alphabets and numbers
-void displayAlphaNumeric(char *message);
+// Clear display and cursor home
+void clearDisplay(void);
 
 // Move the cursor to a specific location
 void moveCursorTo(int row, int col);
 
-// Clear display and cursor home
-void clearDisplay(void);
-
 // Clear the display and move the cursor to a specific location
 void clearDisplayAndCursorTo(int row, int col);
+
+// Display alphabets and numbers
+void displayAlphaNumeric(char *message);
 
 ```
 
 ## Contributors
-Nikhil Raghavendra and Ong Jun Wen (@Jw0699)
+Nikhil Raghavendra (@nikhilraghava) and Ong Jun Wen (@Jw0699)
