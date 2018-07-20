@@ -19,4 +19,4 @@ void moveCursorTo(int row, int col);
 void clearDisplayAndCursorTo(int row, int col);
 
 // Display alphabets and numbers
-// void displayAlphaNumeric(char *message);
+void displayAlphaNumeric(char *message);

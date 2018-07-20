@@ -15,36 +15,28 @@
 int cursorLocation = 0x00;
 
 void initLCDUI() {
-    // Initialise LCD panel
+    // Initialize LCD panel
     LCD8init();
     // Clear display and cursor home
     LCD8send(0x01, 0);
+    // Delay
+    delay_ms(100);
 }
 
 void clearDisplay() {
-    // Clear the display and cursor home
+    // Clear display and cursor home
     LCD8send(0x01, 0);
+    // Delay
+    delay_ms(100);
 }
 
 void moveCursorTo(int row, int col) {
-    // Check if row and column fit hardware specs of the LCD
-    // The row cannot be bigger than 2, col cannot be bigger than 16
-    if (row > 2 || col > 16) {
-        // Row is bigger than 2 or col is bigger than 16, clear display
-        clearDisplay();
-    } else {
-        if (row == 1) {
-        // Compute cursor location
-        cursorLocation = 0x80 + col;
-        // Move cursor to specified location
-        LCD8send(cursorLocation, 0);
-    } else if (row == 2) {
-        // Compute cursor location
-        cursorLocation = 0xC0 + col;
-        // Move cursor to specified location
-        LCD8send(cursorLocation, 0);
-    }
-  }
+    // Compute cursor location based on row and col
+    cursorLocation = ((row == 1) ?  0x7F + col : 0xBF + col);
+    // Move cursor to specified location
+    LCD8send(cursorLocation, 0);
+    // Delay
+    delay_ms(100);
 }
 
 void clearDisplayAndCursorTo(int row, int col) {
@@ -52,4 +44,15 @@ void clearDisplayAndCursorTo(int row, int col) {
     clearDisplay();
     // Move cursor to specified location
     moveCursorTo(row, col);
+}
+
+void displayAlphaNumeric(char *message) {
+    // Initialize buffer
+    char buffer[16];
+    // Format the alphanumeric message into string
+    sprintf(buffer, message);
+    // Write data from buffer to LCD display
+    for (int i=0; buffer[i] != 0 ; i++) LCD8send(buffer[i], 1);
+    // Delay
+    delay_ms(100);
 }

@@ -26,9 +26,16 @@ void interrupt low_priority LowIsr(void) //Low priority interrupt
 }
 
 void main(void) {
-    //   Code goes here
+    // Initialize LCD
     initLCDUI();
-    clearDisplay();
-    moveCursorTo(1, 0);
-    clearDisplayAndCursorTo(1, 1);
+    // Move cursor to row 1, col 2
+    moveCursorTo(1, 2);
+    // Display alphanumeric characters
+    displayAlphaNumeric("Hello 33");
+    // Delay for 5 seconds
+    delay_ms(5000);
+    // Clear display and cursor to row 2, col 3
+    clearDisplayAndCursorTo(2, 3);
+    // Display alphanumeric characters
+    displayAlphaNumeric("Bye 88");
 }
