@@ -38,4 +38,6 @@ void main(void) {
     clearDisplayAndCursorTo(2, 3);
     // Display alphanumeric characters
     displayAlphaNumeric("Bye 88");
+    // Trap CPU
+    while(1);
 }
