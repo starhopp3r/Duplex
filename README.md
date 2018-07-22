@@ -4,7 +4,7 @@ Library Routine for the LCD (Parallel Port) Display of a Smart Washing Machine. 
 
 This library was written for the PIC18F97J60 microcontroller.
 
-### Library routine functions
+### Library Routine Functions
 
 ```c
 // Initialise LCD
