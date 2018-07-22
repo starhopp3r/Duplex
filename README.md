@@ -36,7 +36,9 @@ Every function in this library will introduce a slight delay into the program du
 | clearDisplayAndCursorTo |200|
 | displayAlphaNumeric |100|
 
-**NOTE**: The display functions are **not persistent**, you have to use a loop to ensure the display is persistent.
+### Caveat
+
+The display functions are **not persistent**, you have to use a loop to ensure the display is persistent.
 
 ## Contributors
 Nikhil Raghavendra (@nikhilraghava) and Ong Jun Wen (@Jw0699)
