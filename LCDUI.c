@@ -32,7 +32,8 @@ void clearDisplay() {
 
 void moveCursorTo(int row, int col) {
     // Compute cursor location based on row and col
-    cursorLocation = ((row == 1) ?  0x7F + col : 0xBF + col);
+    // Defaults to first row given any number expect two
+    cursorLocation = ((row == 2) ? 0xBF + col : 0x7F + col);
     // Move cursor to specified location
     LCD8send(cursorLocation, 0);
     // Delay
