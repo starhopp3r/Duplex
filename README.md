@@ -24,18 +24,6 @@ void displayAlphaNumeric(char *message);
 
 ```
 
-### Latency
-
-Every function in this library will introduce a slight delay into the program during execution. The delay was added to improve the visibility of characters being displayed on the display.
-
-|Function|Latency (ms)|
-|:-:|:-:|
-| initLCDUI |100|
-| clearDisplay |100|
-| moveCursorTo |100|
-| clearDisplayAndCursorTo |200|
-| displayAlphaNumeric |100|
-
 ### Caveat
 
 The display functions are **not persistent**, you have to use a loop to ensure the display is persistent.

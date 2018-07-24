@@ -6,7 +6,7 @@
 /*                                                   */
 /*****************************************************/
 
-// Initialise LCD
+// Initialize LCD
 void initLCDUI(void);
 
 // Clear display and cursor home
@@ -20,3 +20,6 @@ void clearDisplayAndCursorTo(int row, int col);
 
 // Display alphabets and numbers
 void displayAlphaNumeric(char *message);
+
+// Splash screen
+void splashScreen(void);
