@@ -1,11 +1,15 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"12 amt.h
-[v _LCD8send `(v ~T0 @X0 0 ef2`uc`uc ]
-"4
-[v _delay_ms `(v ~T0 @X0 0 ef1`i ]
 [p mainexit ]
-"10
-[v _LCD8init `(v ~T0 @X0 0 ef ]
+"9 LCDUI.h
+[v _initLCDUI `(v ~T0 @X0 0 ef ]
+"15
+[v _moveCursorTo `(v ~T0 @X0 0 ef2`i`i ]
+"21
+[v _displayAlphaNumeric `(v ~T0 @X0 0 ef1`*uc ]
+"4 amt.h
+[v _delay_ms `(v ~T0 @X0 0 ef1`i ]
+"24 LCDUI.h
+[v _customGraphics `(v ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5634,167 +5638,80 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;amt.h: 23: void uart_send_char (unsigned char ucChar);
 [; ;amt.h: 24: void clr_screen(void);
 [; ;amt.h: 25: void cursor_home(void);
-[; ;LCDUI.h: 10: void initLCDUI(void);
-[; ;LCDUI.h: 13: void clearDisplay(void);
-[; ;LCDUI.h: 16: void moveCursorTo(int row, int col);
-[; ;LCDUI.h: 19: void clearDisplayAndCursorTo(int row, int col);
-[; ;LCDUI.h: 22: void displayAlphaNumeric(char *message);
-"13 test.c
+[; ;LCDUI.h: 9: void initLCDUI(void);
+[; ;LCDUI.h: 12: void clearDisplay(void);
+[; ;LCDUI.h: 15: void moveCursorTo(int row, int col);
+[; ;LCDUI.h: 18: void clearDisplayAndCursorTo(int row, int col);
+[; ;LCDUI.h: 21: void displayAlphaNumeric(char *message);
+[; ;LCDUI.h: 24: void customGraphics(int selectedGraphic);
+"12 test.c
 [p x XINST=OFF ]
-"14
+"13
 [p x FOSC=HS ]
-"15
+"14
 [p x WDT=OFF ]
 [v $root$_HighIsr `(v ~T0 @X0 0 e ]
-[v F5964 `(v ~T0 @X0 1 tf ]
+[v F5966 `(v ~T0 @X0 1 tf ]
+"17
+[v _HighIsr `IF5966 ~T0 @X0 1 e ]
 "18
-[v _HighIsr `IF5964 ~T0 @X0 1 e ]
-"19
 {
-[; ;test.c: 18: void interrupt HighIsr(void)
-[; ;test.c: 19: {
+[; ;test.c: 17: void interrupt HighIsr(void)
+[; ;test.c: 18: {
 [e :U _HighIsr ]
 [f ]
-[; ;test.c: 21: }
-"21
+[; ;test.c: 20: }
+"20
 [e :UE 534 ]
 }
 [v $root$_LowIsr `(v ~T0 @X0 0 e ]
-[v F5967 `(v ~T0 @X0 1 tf ]
+[v F5969 `(v ~T0 @X0 1 tf ]
+"22
+[v _LowIsr `ILF5969 ~T0 @X0 1 e ]
 "23
-[v _LowIsr `ILF5967 ~T0 @X0 1 e ]
-"24
 {
-[; ;test.c: 23: void interrupt low_priority LowIsr(void)
-[; ;test.c: 24: {
+[; ;test.c: 22: void interrupt low_priority LowIsr(void)
+[; ;test.c: 23: {
 [e :U _LowIsr ]
 [f ]
-[; ;test.c: 26: }
-"26
+[; ;test.c: 25: }
+"25
 [e :UE 535 ]
 }
-"28
-[v _PacMan `(v ~T0 @X0 1 ef ]
-"29
-{
-[; ;test.c: 28: void PacMan(void)
-[; ;test.c: 29: {
-[e :U _PacMan ]
-[f ]
-"30
-[v _delay `i ~T0 @X0 1 a ]
-[; ;test.c: 30: int delay = 150;
-[e = _delay -> 150 `i ]
-[; ;test.c: 31: for (int j = 0; j <16 ; j++) {
-"31
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 16 `i 537  ]
-[e $U 538  ]
-[e :U 537 ]
-{
-[; ;test.c: 32: if (j % 2 == 0) {
-"32
-[e $ ! == % _j -> 2 `i -> 0 `i 540  ]
-{
-[; ;test.c: 33: LCD8send(0x80 + j, 0);
-"33
-[e ( _LCD8send (2 , -> + -> 128 `i _j `uc -> -> 0 `i `uc ]
-[; ;test.c: 34: LCD8send(0x00, 1);
-"34
-[e ( _LCD8send (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;test.c: 35: delay_ms(delay);
-"35
-[e ( _delay_ms (1 _delay ]
-[; ;test.c: 36: LCD8send(0x01, 0);
-"36
-[e ( _LCD8send (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;test.c: 37: delay_ms(delay);
-"37
-[e ( _delay_ms (1 _delay ]
-"38
-}
-[; ;test.c: 38: } else {
-[e $U 541  ]
-[e :U 540 ]
-{
-[; ;test.c: 39: LCD8send(0x80 + j, 0);
-"39
-[e ( _LCD8send (2 , -> + -> 128 `i _j `uc -> -> 0 `i `uc ]
-[; ;test.c: 40: LCD8send(0x01, 1);
-"40
-[e ( _LCD8send (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-[; ;test.c: 41: delay_ms(delay);
-"41
-[e ( _delay_ms (1 _delay ]
-[; ;test.c: 42: LCD8send(0x01, 0);
-"42
-[e ( _LCD8send (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;test.c: 43: delay_ms(delay);
-"43
-[e ( _delay_ms (1 _delay ]
-"44
-}
-[e :U 541 ]
-"45
-}
-"31
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 16 `i 537  ]
-[e :U 538 ]
-"45
-}
-[; ;test.c: 44: }
-[; ;test.c: 45: }
-[; ;test.c: 46: }
-"46
-[e :UE 536 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"48
+"27
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;test.c: 48: void main(void) {
+[; ;test.c: 27: void main(void) {
 [e :U _main ]
 [f ]
-[; ;test.c: 50: LCD8init();
-"50
-[e ( _LCD8init ..  ]
-[; ;test.c: 51: LCD8send(0x0C, 0);
-"51
-[e ( _LCD8send (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
-[; ;test.c: 52: LCD8send(0x80, 0);
-"52
-[e ( _LCD8send (2 , -> -> 128 `i `uc -> -> 0 `i `uc ]
-[; ;test.c: 53: for (int i = 0; i < 15; i++) {
-"53
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 15 `i 543  ]
-[e $U 544  ]
-[e :U 543 ]
-{
-[; ;test.c: 54: PacMan();
-"54
-[e ( _PacMan ..  ]
-"55
+[; ;test.c: 29: initLCDUI();
+"29
+[e ( _initLCDUI ..  ]
+[; ;test.c: 31: moveCursorTo(1, 1);
+"31
+[e ( _moveCursorTo (2 , -> 1 `i -> 1 `i ]
+[; ;test.c: 33: displayAlphaNumeric("Hello!");
+"33
+[e ( _displayAlphaNumeric (1 -> :s 1C `*uc ]
+[; ;test.c: 35: delay_ms(5000);
+"35
+[e ( _delay_ms (1 -> 5000 `i ]
+[; ;test.c: 37: moveCursorTo(2, 1);
+"37
+[e ( _moveCursorTo (2 , -> 2 `i -> 1 `i ]
+[; ;test.c: 39: customGraphics(0);
+"39
+[e ( _customGraphics (1 -> 0 `i ]
+[; ;test.c: 40: while(1);
+"40
+[e :U 538 ]
+[e :U 537 ]
+[e $U 538  ]
+[e :U 539 ]
+[; ;test.c: 41: }
+"41
+[e :UE 536 ]
 }
-"53
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 15 `i 543  ]
-[e :U 544 ]
-"55
-}
-[; ;test.c: 55: }
-[; ;test.c: 56: while(1);
-"56
-[e :U 547 ]
-[e :U 546 ]
-[e $U 547  ]
-[e :U 548 ]
-[; ;test.c: 57: }
-"57
-[e :UE 542 ]
-}
+[a 1C 72 101 108 108 111 33 0 ]
+

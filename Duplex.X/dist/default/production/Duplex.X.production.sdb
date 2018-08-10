@@ -31,23 +31,27 @@
 [v _delay_us delay_us `(v  1 e 1 0 ]
 "11 /Users/nikhil/MPLABXProjects/Duplex.X/LCD8.c
 [v _LCD8init LCD8init `(v  1 e 1 0 ]
-"65
+"80
 [v _LCD8send LCD8send `(v  1 e 1 0 ]
-"24 /Users/nikhil/MPLABXProjects/Duplex.X/LCDUI.c
+"15 /Users/nikhil/MPLABXProjects/Duplex.X/LCDUI.c
+[v _initLCDUI initLCDUI `(v  1 e 1 0 ]
+"20
 [v _clearDisplay clearDisplay `(v  1 e 1 0 ]
-"29
+"25
 [v _moveCursorTo moveCursorTo `(v  1 e 1 0 ]
-"18 /Users/nikhil/MPLABXProjects/Duplex.X/test.c
+"40
+[v _displayAlphaNumeric displayAlphaNumeric `(v  1 e 1 0 ]
+"51
+[v _customGraphics customGraphics `(v  1 e 1 0 ]
+"17 /Users/nikhil/MPLABXProjects/Duplex.X/test.c
 [v _HighIsr HighIsr `II(v  1 e 1 0 ]
-"23
+"22
 [v _LowIsr LowIsr `IIL(v  1 e 1 0 ]
-"28
-[v _PacMan PacMan `(v  1 e 1 0 ]
-"48
+"27
 [v _main main `(v  1 e 1 0 ]
 "6446 /Applications/microchip/xc8/v1.45/include/pic18f97j60.h
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S54 . 1 `uc 1 LATH0 1 0 :1:0 
+[s S56 . 1 `uc 1 LATH0 1 0 :1:0 
 `uc 1 LATH1 1 0 :1:1 
 `uc 1 LATH2 1 0 :1:2 
 `uc 1 LATH3 1 0 :1:3 
@@ -57,7 +61,7 @@
 `uc 1 LATH7 1 0 :1:7 
 ]
 "6791
-[s S63 . 1 `uc 1 LH0 1 0 :1:0 
+[s S65 . 1 `uc 1 LH0 1 0 :1:0 
 `uc 1 LH1 1 0 :1:1 
 `uc 1 LH2 1 0 :1:2 
 `uc 1 LH3 1 0 :1:3 
@@ -66,50 +70,82 @@
 `uc 1 LH6 1 0 :1:6 
 `uc 1 LH7 1 0 :1:7 
 ]
-[u S72 . 1 `S54 1 . 1 0 `S63 1 . 1 0 ]
-[v _LATHbits LATHbits `VES72  1 e 1 @3984 ]
+[u S74 . 1 `S56 1 . 1 0 `S65 1 . 1 0 ]
+[v _LATHbits LATHbits `VES74  1 e 1 @3984 ]
 "7828
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 "8494
 [v _TRISH TRISH `VEuc  1 e 1 @3993 ]
-"15 /Users/nikhil/MPLABXProjects/Duplex.X/LCDUI.c
+"13 /Users/nikhil/MPLABXProjects/Duplex.X/LCDUI.c
 [v _cursorLocation cursorLocation `i  1 e 2 0 ]
-"48 /Users/nikhil/MPLABXProjects/Duplex.X/test.c
+"27 /Users/nikhil/MPLABXProjects/Duplex.X/test.c
 [v _main main `(v  1 e 1 0 ]
 {
-"53
-[v main@i i `i  1 a 2 50 ]
-"57
+"41
 } 0
-"28
-[v _PacMan PacMan `(v  1 e 1 0 ]
+"25 /Users/nikhil/MPLABXProjects/Duplex.X/LCDUI.c
+[v _moveCursorTo moveCursorTo `(v  1 e 1 0 ]
 {
+[v moveCursorTo@row row `i  1 p 2 46 ]
+[v moveCursorTo@col col `i  1 p 2 48 ]
 "31
-[v PacMan@j j `i  1 a 2 48 ]
-"30
-[v PacMan@delay delay `i  1 a 2 46 ]
-"46
+} 0
+"15
+[v _initLCDUI initLCDUI `(v  1 e 1 0 ]
+{
+"18
 } 0
 "11 /Users/nikhil/MPLABXProjects/Duplex.X/LCD8.c
 [v _LCD8init LCD8init `(v  1 e 1 0 ]
 {
-"56
-[v LCD8init@i i `i  1 a 2 24 ]
-"28
-[v LCD8init@customChar customChar `[24]uc  1 a 24 0 ]
+"71
+[v LCD8init@i i `i  1 a 2 32 ]
+"29
+[v LCD8init@customChar customChar `[32]uc  1 a 32 0 ]
 "26
-[v LCD8init@F5867 F5867 `[24]uc  1 s 24 F5867 ]
-"63
+[v LCD8init@F5867 F5867 `[32]uc  1 s 32 F5867 ]
+"78
 } 0
-"65
+"40 /Users/nikhil/MPLABXProjects/Duplex.X/LCDUI.c
+[v _displayAlphaNumeric displayAlphaNumeric `(v  1 e 1 0 ]
+{
+"48
+[v displayAlphaNumeric@i i `i  1 a 2 16 ]
+"42
+[v displayAlphaNumeric@buffer buffer `[16]uc  1 a 16 0 ]
+"40
+[v displayAlphaNumeric@message message `*.32uc  1 p 2 47 ]
+"49
+} 0
+"492 /Applications/microchip/xc8/v1.45/sources/common/doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+"494
+[v sprintf@ap ap `[1]*.39v  1 a 2 43 ]
+"499
+[v sprintf@c c `c  1 a 1 46 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 45 ]
+"492
+[v sprintf@sp sp `*.39uc  1 p 2 39 ]
+[v sprintf@f f `*.32Cuc  1 p 2 41 ]
+"1541
+} 0
+"51 /Users/nikhil/MPLABXProjects/Duplex.X/LCDUI.c
+[v _customGraphics customGraphics `(v  1 e 1 0 ]
+{
+[v customGraphics@selectedGraphic selectedGraphic `i  1 p 2 46 ]
+"57
+} 0
+"80 /Users/nikhil/MPLABXProjects/Duplex.X/LCD8.c
 [v _LCD8send LCD8send `(v  1 e 1 0 ]
 {
 [v LCD8send@c c `uc  1 a 1 wreg ]
 [v LCD8send@c c `uc  1 a 1 wreg ]
 [v LCD8send@mode mode `uc  1 p 1 44 ]
-"67
+"82
 [v LCD8send@c c `uc  1 a 1 45 ]
-"75
+"90
 } 0
 "15 /Users/nikhil/MPLABXProjects/Duplex.X/delay.c
 [v _delay_us delay_us `(v  1 e 1 0 ]
@@ -129,13 +165,13 @@
 [v delay_ms@x x `i  1 p 2 39 ]
 "13
 } 0
-"23 /Users/nikhil/MPLABXProjects/Duplex.X/test.c
+"22 /Users/nikhil/MPLABXProjects/Duplex.X/test.c
 [v _LowIsr LowIsr `IIL(v  1 e 1 0 ]
 {
-"26
+"25
 } 0
-"18
+"17
 [v _HighIsr HighIsr `II(v  1 e 1 0 ]
 {
-"21
+"20
 } 0

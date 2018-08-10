@@ -15,8 +15,6 @@ int cursorLocation = 0x00;
 void initLCDUI() {
     // Initialize LCD panel
     LCD8init();
-    // Clear display and cursor home
-    LCD8send(0x01, 0);
 }
 
 void clearDisplay() {

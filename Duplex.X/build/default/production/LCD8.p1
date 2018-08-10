@@ -5658,94 +5658,118 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F5867 `uc ~T0 @X0 -> 0 `x s ]
 [i F5867
 :U ..
-"29
--> -> 14 `i `uc
-"30
--> -> 29 `i `uc
 "31
 -> -> 31 `i `uc
 "32
--> -> 28 `i `uc
+-> -> 31 `i `uc
 "33
--> -> 24 `i `uc
+-> -> 0 `i `uc
 "34
--> -> 28 `i `uc
+-> -> 9 `i `uc
 "35
--> -> 31 `i `uc
+-> -> 0 `i `uc
 "36
--> -> 14 `i `uc
+-> -> 4 `i `uc
 "37
--> -> 14 `i `uc
+-> -> 0 `i `uc
 "38
--> -> 29 `i `uc
-"39
--> -> 31 `i `uc
+-> -> 17 `i `uc
 "40
 -> -> 31 `i `uc
 "41
--> -> 24 `i `uc
+-> -> 31 `i `uc
 "42
--> -> 31 `i `uc
+-> -> 0 `i `uc
 "43
--> -> 31 `i `uc
+-> -> 21 `i `uc
 "44
--> -> 14 `i `uc
+-> -> 17 `i `uc
 "45
--> -> 14 `i `uc
+-> -> 5 `i `uc
 "46
--> -> 31 `i `uc
+-> -> 20 `i `uc
 "47
 -> -> 21 `i `uc
-"48
--> -> 31 `i `uc
 "49
--> -> 31 `i `uc
+-> -> 18 `i `uc
 "50
--> -> 31 `i `uc
+-> -> 9 `i `uc
 "51
--> -> 21 `i `uc
+-> -> 18 `i `uc
+"52
+-> -> 9 `i `uc
 "53
--> -> 21 `i `uc
+-> -> 0 `i `uc
+"54
+-> -> 31 `i `uc
+"55
+-> -> 0 `i `uc
+"56
+-> -> 31 `i `uc
+"58
+-> -> 14 `i `uc
+"59
+-> -> 8 `i `uc
+"60
+-> -> 2 `i `uc
+"61
+-> -> 14 `i `uc
+"62
+-> -> 0 `i `uc
+"63
+-> -> 31 `i `uc
+"64
+-> -> 0 `i `uc
+"66
+-> -> 31 `i `uc
 ..
 ]
-"28
-[v _customChar `uc ~T0 @X0 24  a ]
-[; ;LCD8.c: 28: char customChar[] = {
-[; ;LCD8.c: 29: 0x0E,
-[; ;LCD8.c: 30: 0x1D,
+"29
+[v _customChar `uc ~T0 @X0 32  a ]
+[; ;LCD8.c: 29: char customChar[] = {
 [; ;LCD8.c: 31: 0x1F,
-[; ;LCD8.c: 32: 0x1C,
-[; ;LCD8.c: 33: 0x18,
-[; ;LCD8.c: 34: 0x1C,
-[; ;LCD8.c: 35: 0x1F,
-[; ;LCD8.c: 36: 0x0E,
-[; ;LCD8.c: 37: 0x0E,
-[; ;LCD8.c: 38: 0x1D,
-[; ;LCD8.c: 39: 0x1F,
+[; ;LCD8.c: 32: 0x1F,
+[; ;LCD8.c: 33: 0x00,
+[; ;LCD8.c: 34: 0x09,
+[; ;LCD8.c: 35: 0x00,
+[; ;LCD8.c: 36: 0x04,
+[; ;LCD8.c: 37: 0x00,
+[; ;LCD8.c: 38: 0x11,
 [; ;LCD8.c: 40: 0x1F,
-[; ;LCD8.c: 41: 0x18,
-[; ;LCD8.c: 42: 0x1F,
-[; ;LCD8.c: 43: 0x1F,
-[; ;LCD8.c: 44: 0x0E,
-[; ;LCD8.c: 45: 0x0E,
-[; ;LCD8.c: 46: 0x1F,
+[; ;LCD8.c: 41: 0x1F,
+[; ;LCD8.c: 42: 0x00,
+[; ;LCD8.c: 43: 0x15,
+[; ;LCD8.c: 44: 0x11,
+[; ;LCD8.c: 45: 0x05,
+[; ;LCD8.c: 46: 0x14,
 [; ;LCD8.c: 47: 0x15,
-[; ;LCD8.c: 48: 0x1F,
-[; ;LCD8.c: 49: 0x1F,
-[; ;LCD8.c: 50: 0x1F,
-[; ;LCD8.c: 51: 0x15,
-[; ;LCD8.c: 52: 0x15
-[; ;LCD8.c: 53: };
-"53
+[; ;LCD8.c: 49: 0x12,
+[; ;LCD8.c: 50: 0x09,
+[; ;LCD8.c: 51: 0x12,
+[; ;LCD8.c: 52: 0x09,
+[; ;LCD8.c: 53: 0x00,
+[; ;LCD8.c: 54: 0x1F,
+[; ;LCD8.c: 55: 0x00,
+[; ;LCD8.c: 56: 0x1F,
+[; ;LCD8.c: 58: 0x0E,
+[; ;LCD8.c: 59: 0x08,
+[; ;LCD8.c: 60: 0x02,
+[; ;LCD8.c: 61: 0x0E,
+[; ;LCD8.c: 62: 0x00,
+[; ;LCD8.c: 63: 0x1F,
+[; ;LCD8.c: 64: 0x00,
+[; ;LCD8.c: 65: 0x1F
+[; ;LCD8.c: 66: };
+"66
 [e = _customChar F5867 ]
-[; ;LCD8.c: 54: LCD8send(0x40, 0);
-"54
+[; ;LCD8.c: 68: LCD8send(0x40, 0);
+"68
 [e ( _LCD8send (2 , -> -> 64 `i `uc -> -> 0 `i `uc ]
-[; ;LCD8.c: 55: delay_us(30);
-"55
+[; ;LCD8.c: 69: delay_us(30);
+"69
 [e ( _delay_us (1 -> 30 `i ]
-[; ;LCD8.c: 56: for (int i = 0; i < 64; i++) {
-"56
+[; ;LCD8.c: 71: for (int i = 0; i < 64; i++) {
+"71
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -5753,65 +5777,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 535  ]
 [e :U 534 ]
 {
-[; ;LCD8.c: 57: LCD8send(customChar[i], 1);
-"57
+[; ;LCD8.c: 72: LCD8send(customChar[i], 1);
+"72
 [e ( _LCD8send (2 , *U + &U _customChar * -> -> _i `ui `ux -> -> # *U &U _customChar `ui `ux -> -> 1 `i `uc ]
-[; ;LCD8.c: 58: delay_us(30);
-"58
+[; ;LCD8.c: 73: delay_us(30);
+"73
 [e ( _delay_us (1 -> 30 `i ]
-"59
+"74
 }
-"56
+"71
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 64 `i 534  ]
 [e :U 535 ]
-"59
+"74
 }
-[; ;LCD8.c: 59: }
-[; ;LCD8.c: 61: LCD8send(0x01,0);
-"61
+[; ;LCD8.c: 74: }
+[; ;LCD8.c: 76: LCD8send(0x01,0);
+"76
 [e ( _LCD8send (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;LCD8.c: 62: delay_ms(100);
-"62
+[; ;LCD8.c: 77: delay_ms(100);
+"77
 [e ( _delay_ms (1 -> 100 `i ]
-[; ;LCD8.c: 63: }
-"63
+[; ;LCD8.c: 78: }
+"78
 [e :UE 533 ]
 }
-"65
+"80
 [v _LCD8send `(v ~T0 @X0 1 ef2`uc`uc ]
-"66
+"81
 {
-[; ;LCD8.c: 65: void LCD8send(char c, char mode)
-[; ;LCD8.c: 66: {
+[; ;LCD8.c: 80: void LCD8send(char c, char mode)
+[; ;LCD8.c: 81: {
 [e :U _LCD8send ]
-"65
+"80
 [v _c `uc ~T0 @X0 1 r1 ]
 [v _mode `uc ~T0 @X0 1 r2 ]
-"66
+"81
 [f ]
-[; ;LCD8.c: 67: LATHbits.LATH2 = mode;
-"67
+[; ;LCD8.c: 82: LATHbits.LATH2 = mode;
+"82
 [e = . . _LATHbits 0 2 _mode ]
-[; ;LCD8.c: 68: delay_ms(1);
-"68
+[; ;LCD8.c: 83: delay_ms(1);
+"83
 [e ( _delay_ms (1 -> 1 `i ]
-[; ;LCD8.c: 70: LATE = c;
-"70
+[; ;LCD8.c: 85: LATE = c;
+"85
 [e = _LATE _c ]
-[; ;LCD8.c: 71: LATHbits.LATH0 = 1;
-"71
+[; ;LCD8.c: 86: LATHbits.LATH0 = 1;
+"86
 [e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
-[; ;LCD8.c: 72: delay_us(1);
-"72
+[; ;LCD8.c: 87: delay_us(1);
+"87
 [e ( _delay_us (1 -> 1 `i ]
-[; ;LCD8.c: 73: LATHbits.LATH0 = 0;
-"73
+[; ;LCD8.c: 88: LATHbits.LATH0 = 0;
+"88
 [e = . . _LATHbits 0 0 -> -> 0 `i `uc ]
-[; ;LCD8.c: 74: delay_us(50);
-"74
+[; ;LCD8.c: 89: delay_us(50);
+"89
 [e ( _delay_us (1 -> 50 `i ]
-[; ;LCD8.c: 75: }
-"75
+[; ;LCD8.c: 90: }
+"90
 [e :UE 537 ]
 }

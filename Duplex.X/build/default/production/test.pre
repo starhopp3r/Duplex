@@ -7672,7 +7672,7 @@ void uart_send_char (unsigned char ucChar);
 void clr_screen(void);
 void cursor_home(void);
 
-# 10 "LCDUI.h"
+# 9 "LCDUI.h"
 void initLCDUI(void);
 
 
@@ -7688,7 +7688,10 @@ void clearDisplayAndCursorTo(int row, int col);
 void displayAlphaNumeric(char *message);
 
 
-# 13 "test.c"
+void customGraphics(int selectedGraphic);
+
+
+# 12 "test.c"
 #pragma config XINST = OFF
 #pragma config FOSC = HS
 #pragma config WDT = OFF
@@ -7704,33 +7707,18 @@ void interrupt low_priority LowIsr(void)
 
 }
 
-void PacMan(void)
-{
-int delay = 150;
-for (int j = 0; j <16 ; j++) {
-if (j % 2 == 0) {
-LCD8send(0x80 + j, 0);
-LCD8send(0x00, 1);
-delay_ms(delay);
-LCD8send(0x01, 0);
-delay_ms(delay);
-} else {
-LCD8send(0x80 + j, 0);
-LCD8send(0x01, 1);
-delay_ms(delay);
-LCD8send(0x01, 0);
-delay_ms(delay);
-}
-}
-}
-
 void main(void) {
 
-LCD8init();
-LCD8send(0x0C, 0);
-LCD8send(0x80, 0);
-for (int i = 0; i < 15; i++) {
-PacMan();
-}
+initLCDUI();
+
+moveCursorTo(1, 1);
+
+displayAlphaNumeric("Hello!");
+
+delay_ms(5000);
+
+moveCursorTo(2, 1);
+
+customGraphics(0);
 while(1);
 }
