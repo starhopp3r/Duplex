@@ -31,11 +31,22 @@ void main(void) {
     moveCursorTo(1, 1);
     // Display text
     displayAlphaNumeric("Hello!");
-    // Delay for 5 seconds
-    delay_ms(5000);
+    // Delay for 2 seconds
+    delay_ms(2000);
     // Move cursor to row 2, col 1
-    moveCursorTo(2, 1);
+    clearDisplayAndCursorTo(2, 1);
     // Display the first custom graphic icon - delicate wash
-    customGraphics(0);
+    for (int i = 0; i < 4; i++) {
+        customGraphics(i);
+        delay_ms(1000);
+    }
+    // Short delay
+    delay_ms(2000);
+    // Clear display
+    clearDisplay();
+    // Cursor to row 1, col 1
+    moveCursorTo(1, 1);
+    // Display bye message
+    displayAlphaNumeric("Bye!");
     while(1);
 }

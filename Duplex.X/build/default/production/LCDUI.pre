@@ -7715,6 +7715,8 @@ LCD8init();
 void clearDisplay() {
 
 LCD8send(0x01, 0);
+
+delay_ms(50);
 }
 
 void moveCursorTo(int row, int col) {

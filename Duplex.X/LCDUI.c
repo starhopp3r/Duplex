@@ -20,6 +20,8 @@ void initLCDUI() {
 void clearDisplay() {
     // Clear display and cursor home
     LCD8send(0x01, 0);
+    // Short delay
+    delay_ms(50);
 }
 
 void moveCursorTo(int row, int col) {

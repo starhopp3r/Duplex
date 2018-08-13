@@ -1,15 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"9 LCDUI.h
+"10 LCDUI.h
 [v _initLCDUI `(v ~T0 @X0 0 ef ]
-"15
+"16
 [v _moveCursorTo `(v ~T0 @X0 0 ef2`i`i ]
-"21
+"22
 [v _displayAlphaNumeric `(v ~T0 @X0 0 ef1`*uc ]
 "4 amt.h
 [v _delay_ms `(v ~T0 @X0 0 ef1`i ]
-"24 LCDUI.h
+"19 LCDUI.h
+[v _clearDisplayAndCursorTo `(v ~T0 @X0 0 ef2`i`i ]
+"25
 [v _customGraphics `(v ~T0 @X0 0 ef1`i ]
+"13
+[v _clearDisplay `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5638,12 +5642,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;amt.h: 23: void uart_send_char (unsigned char ucChar);
 [; ;amt.h: 24: void clr_screen(void);
 [; ;amt.h: 25: void cursor_home(void);
-[; ;LCDUI.h: 9: void initLCDUI(void);
-[; ;LCDUI.h: 12: void clearDisplay(void);
-[; ;LCDUI.h: 15: void moveCursorTo(int row, int col);
-[; ;LCDUI.h: 18: void clearDisplayAndCursorTo(int row, int col);
-[; ;LCDUI.h: 21: void displayAlphaNumeric(char *message);
-[; ;LCDUI.h: 24: void customGraphics(int selectedGraphic);
+[; ;LCDUI.h: 10: void initLCDUI(void);
+[; ;LCDUI.h: 13: void clearDisplay(void);
+[; ;LCDUI.h: 16: void moveCursorTo(int row, int col);
+[; ;LCDUI.h: 19: void clearDisplayAndCursorTo(int row, int col);
+[; ;LCDUI.h: 22: void displayAlphaNumeric(char *message);
+[; ;LCDUI.h: 25: void customGraphics(int selectedGraphic);
 "12 test.c
 [p x XINST=OFF ]
 "13
@@ -5694,24 +5698,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;test.c: 33: displayAlphaNumeric("Hello!");
 "33
 [e ( _displayAlphaNumeric (1 -> :s 1C `*uc ]
-[; ;test.c: 35: delay_ms(5000);
+[; ;test.c: 35: delay_ms(2000);
 "35
-[e ( _delay_ms (1 -> 5000 `i ]
-[; ;test.c: 37: moveCursorTo(2, 1);
+[e ( _delay_ms (1 -> 2000 `i ]
+[; ;test.c: 37: clearDisplayAndCursorTo(2, 1);
 "37
-[e ( _moveCursorTo (2 , -> 2 `i -> 1 `i ]
-[; ;test.c: 39: customGraphics(0);
+[e ( _clearDisplayAndCursorTo (2 , -> 2 `i -> 1 `i ]
+[; ;test.c: 39: for (int i = 0; i < 4; i++) {
 "39
-[e ( _customGraphics (1 -> 0 `i ]
-[; ;test.c: 40: while(1);
-"40
-[e :U 538 ]
-[e :U 537 ]
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 537  ]
 [e $U 538  ]
-[e :U 539 ]
-[; ;test.c: 41: }
+[e :U 537 ]
+{
+[; ;test.c: 40: customGraphics(i);
+"40
+[e ( _customGraphics (1 _i ]
+[; ;test.c: 41: delay_ms(1000);
 "41
+[e ( _delay_ms (1 -> 1000 `i ]
+"42
+}
+"39
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 537  ]
+[e :U 538 ]
+"42
+}
+[; ;test.c: 42: }
+[; ;test.c: 44: delay_ms(2000);
+"44
+[e ( _delay_ms (1 -> 2000 `i ]
+[; ;test.c: 46: clearDisplay();
+"46
+[e ( _clearDisplay ..  ]
+[; ;test.c: 48: moveCursorTo(1, 1);
+"48
+[e ( _moveCursorTo (2 , -> 1 `i -> 1 `i ]
+[; ;test.c: 50: displayAlphaNumeric("Bye!");
+"50
+[e ( _displayAlphaNumeric (1 -> :s 2C `*uc ]
+[; ;test.c: 51: while(1);
+"51
+[e :U 541 ]
+[e :U 540 ]
+[e $U 541  ]
+[e :U 542 ]
+[; ;test.c: 52: }
+"52
 [e :UE 536 ]
 }
 [a 1C 72 101 108 108 111 33 0 ]
-
+[a 2C 66 121 101 33 0 ]

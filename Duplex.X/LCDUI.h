@@ -4,7 +4,8 @@
 //  Created by Nikhil Raghavendra and Ong Jun Wen on 22/6/18.
 //  Copyright © 2018 Nikhil Raghavendra and Ong Jun Wen. All rights reserved.
 //
-
+#ifndef _LCD_UI_
+#define _LCD_UI_
 // Initialize LCD
 void initLCDUI(void);
 
@@ -22,3 +23,4 @@ void displayAlphaNumeric(char *message);
 
 // Display custom graphics
 void customGraphics(int selectedGraphic);
+#endif

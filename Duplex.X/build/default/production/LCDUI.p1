@@ -3,6 +3,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD8init `(v ~T0 @X0 0 ef ]
 "12
 [v _LCD8send `(v ~T0 @X0 0 ef2`uc`uc ]
+"4
+[v _delay_ms `(v ~T0 @X0 0 ef1`i ]
 "194 /Applications/microchip/xc8/v1.45/include/stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -5687,64 +5689,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCDUI.c: 22: LCD8send(0x01, 0);
 "22
 [e ( _LCD8send (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;LCDUI.c: 23: }
-"23
+[; ;LCDUI.c: 24: delay_ms(50);
+"24
+[e ( _delay_ms (1 -> 50 `i ]
+[; ;LCDUI.c: 25: }
+"25
 [e :UE 535 ]
 }
-"25
+"27
 [v _moveCursorTo `(v ~T0 @X0 1 ef2`i`i ]
 {
-[; ;LCDUI.c: 25: void moveCursorTo(int row, int col) {
+[; ;LCDUI.c: 27: void moveCursorTo(int row, int col) {
 [e :U _moveCursorTo ]
 [v _row `i ~T0 @X0 1 r1 ]
 [v _col `i ~T0 @X0 1 r2 ]
 [f ]
-[; ;LCDUI.c: 28: cursorLocation = ((row == 2) ? 0xBF + col : 0x7F + col);
-"28
-[e = _cursorLocation ? == _row -> 2 `i : + -> 191 `i _col + -> 127 `i _col ]
-[; ;LCDUI.c: 30: LCD8send(cursorLocation, 0);
+[; ;LCDUI.c: 30: cursorLocation = ((row == 2) ? 0xBF + col : 0x7F + col);
 "30
+[e = _cursorLocation ? == _row -> 2 `i : + -> 191 `i _col + -> 127 `i _col ]
+[; ;LCDUI.c: 32: LCD8send(cursorLocation, 0);
+"32
 [e ( _LCD8send (2 , -> _cursorLocation `uc -> -> 0 `i `uc ]
-[; ;LCDUI.c: 31: }
-"31
+[; ;LCDUI.c: 33: }
+"33
 [e :UE 536 ]
 }
-"33
+"35
 [v _clearDisplayAndCursorTo `(v ~T0 @X0 1 ef2`i`i ]
 {
-[; ;LCDUI.c: 33: void clearDisplayAndCursorTo(int row, int col) {
+[; ;LCDUI.c: 35: void clearDisplayAndCursorTo(int row, int col) {
 [e :U _clearDisplayAndCursorTo ]
 [v _row `i ~T0 @X0 1 r1 ]
 [v _col `i ~T0 @X0 1 r2 ]
 [f ]
-[; ;LCDUI.c: 35: clearDisplay();
-"35
-[e ( _clearDisplay ..  ]
-[; ;LCDUI.c: 37: moveCursorTo(row, col);
+[; ;LCDUI.c: 37: clearDisplay();
 "37
+[e ( _clearDisplay ..  ]
+[; ;LCDUI.c: 39: moveCursorTo(row, col);
+"39
 [e ( _moveCursorTo (2 , _row _col ]
-[; ;LCDUI.c: 38: }
-"38
+[; ;LCDUI.c: 40: }
+"40
 [e :UE 537 ]
 }
-"40
+"42
 [v _displayAlphaNumeric `(v ~T0 @X0 1 ef1`*uc ]
 {
-[; ;LCDUI.c: 40: void displayAlphaNumeric(char *message) {
+[; ;LCDUI.c: 42: void displayAlphaNumeric(char *message) {
 [e :U _displayAlphaNumeric ]
 [v _message `*uc ~T0 @X0 1 r1 ]
 [f ]
-"42
-[v _buffer `uc ~T0 @X0 -> 16 `i a ]
-[; ;LCDUI.c: 42: char buffer[16];
-[; ;LCDUI.c: 44: sprintf(buffer, message);
 "44
-[e ( _sprintf (1 , &U _buffer -> _message `*Cuc ]
-[; ;LCDUI.c: 46: LCD8send(cursorLocation, 0);
+[v _buffer `uc ~T0 @X0 -> 16 `i a ]
+[; ;LCDUI.c: 44: char buffer[16];
+[; ;LCDUI.c: 46: sprintf(buffer, message);
 "46
-[e ( _LCD8send (2 , -> _cursorLocation `uc -> -> 0 `i `uc ]
-[; ;LCDUI.c: 48: for (int i=0; buffer[i] != 0; i++) LCD8send(buffer[i], 1);
+[e ( _sprintf (1 , &U _buffer -> _message `*Cuc ]
+[; ;LCDUI.c: 48: LCD8send(cursorLocation, 0);
 "48
+[e ( _LCD8send (2 , -> _cursorLocation `uc -> -> 0 `i `uc ]
+[; ;LCDUI.c: 50: for (int i=0; buffer[i] != 0; i++) LCD8send(buffer[i], 1);
+"50
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -5756,22 +5761,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != -> *U + &U _buffer * -> -> _i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 0 `i 539  ]
 [e :U 540 ]
 }
-[; ;LCDUI.c: 49: }
-"49
+[; ;LCDUI.c: 51: }
+"51
 [e :UE 538 ]
 }
-"51
+"53
 [v _customGraphics `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;LCDUI.c: 51: void customGraphics(int selectedGraphic) {
+[; ;LCDUI.c: 53: void customGraphics(int selectedGraphic) {
 [e :U _customGraphics ]
 [v _selectedGraphic `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;LCDUI.c: 56: LCD8send(0x00+selectedGraphic, 1);
-"56
+[; ;LCDUI.c: 58: LCD8send(0x00+selectedGraphic, 1);
+"58
 [e ( _LCD8send (2 , -> + -> 0 `i _selectedGraphic `uc -> -> 1 `i `uc ]
-[; ;LCDUI.c: 57: }
-"57
+[; ;LCDUI.c: 59: }
+"59
 [e :UE 543 ]
 }
 [p f _sprintf 9437696 ]

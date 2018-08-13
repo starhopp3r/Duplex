@@ -1,6 +1,6 @@
 # Duplex
 
-Library Routine for the LCD (Parallel Port) Display of a Smart Washing Machine. The LCD is connected to the microcontroller via the Serial Peripheral Interface (SPI).
+Library routine for the LCD (parallel port) display of a smart washing machine. The LCD is connected to the microcontroller via the Serial Peripheral Interface (SPI). 
 
 This library was written for the PIC18F97J60 microcontroller.
 
@@ -22,6 +22,8 @@ void clearDisplayAndCursorTo(int row, int col);
 // Display alphabets and numbers
 void displayAlphaNumeric(char *message);
 
+// Display custom graphics preloaded in CG RAM
+void customGraphics(int selectedGraphic);
 ```
 
 ### Caveat

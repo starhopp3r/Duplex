@@ -7672,7 +7672,7 @@ void uart_send_char (unsigned char ucChar);
 void clr_screen(void);
 void cursor_home(void);
 
-# 9 "LCDUI.h"
+# 10 "LCDUI.h"
 void initLCDUI(void);
 
 
@@ -7715,10 +7715,21 @@ moveCursorTo(1, 1);
 
 displayAlphaNumeric("Hello!");
 
-delay_ms(5000);
+delay_ms(2000);
 
-moveCursorTo(2, 1);
+clearDisplayAndCursorTo(2, 1);
 
-customGraphics(0);
+for (int i = 0; i < 4; i++) {
+customGraphics(i);
+delay_ms(1000);
+}
+
+delay_ms(2000);
+
+clearDisplay();
+
+moveCursorTo(1, 1);
+
+displayAlphaNumeric("Bye!");
 while(1);
 }
