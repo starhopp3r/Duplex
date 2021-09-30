@@ -31,4 +31,4 @@ void customGraphics(int selectedGraphic);
 The display functions are **not persistent**, you have to use a loop to ensure the display is persistent.
 
 ## Contributors
-Nikhil Raghavendra (@nikhilraghava) and Ong Jun Wen (@Jw0699)
+Nikhil Raghavendra (@starhopp3r) and Ong Jun Wen (@Jw0699)
